@@ -42,6 +42,9 @@ function todo() {
 }
 alias tt='trello-helpers today'
 function gmp() {
+  FILE=$PWD'/'$1'.html'
+  touch $FILE
+  open -a 'Google Chrome' 'file://'$FILE
   github-markdown-preview $1
 }
 
