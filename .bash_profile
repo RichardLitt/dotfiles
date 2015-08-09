@@ -94,3 +94,6 @@ fi
 ## PATH 
 ### For Geektool
 PATH=$PATH
+
+## Env vars
+source ~/.env
