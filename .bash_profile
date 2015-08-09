@@ -7,11 +7,11 @@ source ~/.bashrc
 parse_git_stash() {
     [[ $(git stash list 2> /dev/null | tail -n1) != "" ]] && echo ' \[\e[0;31m\]☣'
 }
-
+ 
 set_bash_prompt(){
     PS1="\A \w$(parse_git_stash) \[\e[0m\]$ "
 }
-
+ 
 PROMPT_COMMAND=set_bash_prompt
 
 ## Aliases
@@ -25,13 +25,13 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
+alias d="cd ~/Documents"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias p="cd ~/projects"
+alias src="cd ~/src"
+alias beagle="cd ~/src/beagle"
 alias g="git"
 alias h="history"
-alias j="jobs"
 
 # Programs
 alias sublime='open -a "Sublime Text"'
@@ -40,6 +40,7 @@ alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --d
 function todo() {
   trello-helpers $*
 }
+alias tt='trello-helpers today'
 function gmp() {
   github-markdown-preview $1
 }
@@ -79,7 +80,6 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
-
 #### Autocomplete
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
@@ -88,6 +88,6 @@ fi
 ## Ruby
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-## PATH
+## PATH 
 ### For Geektool
 PATH=$PATH
