@@ -9,7 +9,7 @@ parse_git_stash() {
 }
  
 set_bash_prompt(){
-    PS1="\A \w$(parse_git_stash) \[\e[0m\]$ "
+    PS1="\A \w$(parse_git_stash) \[\e[0m\]🐕  "
 }
  
 PROMPT_COMMAND=set_bash_prompt
@@ -23,6 +23,9 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
+function lsf() {
+  for f in *; do [[ -d "$f" ]] || ls -- "$f"; done
+}
 
 # Shortcuts
 alias d="cd ~/Documents"
@@ -30,17 +33,22 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias src="cd ~/src"
 alias beagle="cd ~/src/beagle"
-alias g="git"
 alias h="history"
+
+# Productivity helpers
+alias timestamp=rl-timestamp
+alias tasks="subl ~/src/closed-door/IPFS.md"
+alias notes="subl ~/src/docs/notes.md"
+function trello() {
+  trello-helpers "$1" "$2" "$3"
+}
+alias tt='trello-helpers today'
+alias next="trello -l 'Today' | head -n 1"
 
 # Programs
 alias sublime='open -a "Sublime Text"'
 alias subl=sublime
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-extensions-http-throttling'
-function todo() {
-  trello-helpers $*
-}
-alias tt='trello-helpers today'
 function gmp() {
   FILE=$PWD'/'$1'.html'
   touch $FILE
@@ -49,14 +57,26 @@ function gmp() {
 }
 
 ### git
+alias g="git"
 alias git="hub"
 eval "$(hub alias -s)"
 alias gg='git log --oneline --abbrev-commit --all --graph --decorate --color'
+alias gg5='gg | head -n5'
+alias gk='g k'
 alias gitpo="git push origin HEAD"
 alias gits='git status'
+function gitcf() {
+  git clone $1
+  IFS='/' read -a array <<< "$1"
+  cd "${array[1]}"
+  git fork
+  git rr
+}
 function gbi() {
   git browse -- 'issues/'$1
 }
+
+PATH="~/src/dotfiles/git/:$PATH"
 
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
@@ -97,3 +117,4 @@ PATH=$PATH
 
 ## Env vars
 source ~/.env
+export POETRY=/Users/richard/src/closed-door/poetry/
