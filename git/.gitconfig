@@ -1,0 +1,40 @@
+[user]
+	name = Richard Littauer
+	email = richard.littauer@gmail.com
+[alias]
+	co = checkout
+	ca = !git add -A && git commit -v
+	ac = !git add -A && git commit --amend
+	rr = !git remote rename origin upstream && git remote rename RichardLitt origin && git remote -vv
+	dn = diff --stat --color
+	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	s = status
+	poh = push origin HEAD
+	rv = remote -vv
+	br = branch -rr
+	mum = merge upstream/master
+	fm = !git co master && git fetch upstream && git mum
+	rbm = rebase master
+  credit = !sh -c 'git commit --amend --author \"$1\" -C HEAD' -
+  yolo = !git add -A && git commit --amend --no-edit && git push -f origin HEAD
+  wc = !git diff --word-diff=porcelain HEAD | grep -e '^+[^+]' | wc -w
+  k = !git branch && git remote -vv && git status
+[github]
+	user = RichardLitt
+[ghi]
+	token = !security find-internet-password -a RichardLitt -s github.com -l 'ghi token' -w
+[credential]
+	helper = osxkeychain
+[core]
+	excludesfile = /Users/richard/.gitignore_global
+
+	## This fixes the issue with vi errors removing text on quit
+	editor = /usr/bin/vim
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = simple
