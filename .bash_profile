@@ -35,6 +35,9 @@ alias src="cd ~/src"
 alias beagle="cd ~/src/beagle"
 alias h="history"
 
+## Stupid stuff
+alias ifps=ipfs
+
 # Productivity helpers
 alias timestamp=rl-timestamp
 alias tasks="subl ~/src/closed-door/IPFS.md"
