@@ -10,3 +10,6 @@ export TERM=xterm-256color
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# added by travis gem
+[ -f /Users/richard/.travis/travis.sh ] && source /Users/richard/.travis/travis.sh

@@ -9,7 +9,8 @@
 	dn = diff --stat --color
 	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	s = status
-	poh = push origin HEAD
+	up = push origin HEAD
+	down = pull origin HEAD
 	rv = remote -vv
 	br = branch -rr
 	mum = merge upstream/master

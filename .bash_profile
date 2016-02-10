@@ -4,15 +4,45 @@ source ~/.bashrc
 ## Prompt
 #export PS1="\A \w $ "
 
-parse_git_stash() {
-    [[ $(git stash list 2> /dev/null | tail -n1) != "" ]] && echo ' \[\e[0;31m\]☣'
+# From https://github.com/jimeh/git-aware-prompt
+source "/Users/richard/.bash/git-aware-prompt/colors.sh"
+
+find_git_branch() {
+  # Based on: http://stackoverflow.com/a/13003854/170413
+  local branch
+  if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
+    if [[ "$branch" == "HEAD" ]]; then
+      branch='detached*'
+    fi
+    git_branch="($branch) "
+  else
+    git_branch=""
+  fi
 }
- 
-set_bash_prompt(){
-    PS1="\A \w$(parse_git_stash) \[\e[0m\]🐕  "
+
+find_git_dirty() {
+  local status=$(git status --porcelain 2> /dev/null)
+  if [[ "$status" != "" ]]; then
+    git_dirty='* '
+  else
+    git_dirty=''
+  fi
 }
+
+# parse_git_stash() {
+#     [[ $(git stash list 2> /dev/null | tail -n1) != "" ]] && echo ' \[\e[0;31m\]☣'
+# }
  
-PROMPT_COMMAND=set_bash_prompt
+# set_bash_prompt(){
+#     PS1="\A \w$(parse_git_stash) \[\e[0m\]🐕  "
+# }
+ 
+# PROMPT_COMMAND=set_bash_prompt
+
+PROMPT_COMMAND="find_git_branch; find_git_dirty; $PROMPT_COMMAND"
+
+# Default Git enabled prompt with dirty state
+export PS1="\A \w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]🐕  "
 
 ## Aliases
 
@@ -39,13 +69,23 @@ alias ifps=ipfs
 
 # Productivity helpers
 alias timestamp=rl-timestamp
-alias tasks="subl ~/src/closed-door/IPFS.md"
+export IPFS='/Users/richard/src/closed-door/IPFS.md'
+alias tasks="subl $IPFS"
+function ipfs-status () {
+  timestamp "-f" "$IPFS" "$1"
+}
 alias notes="subl ~/src/docs/notes.md"
 function trello() {
   trello-helpers "$1" "$2" "$3"
 }
 alias tt='trello-helpers today'
 alias next="trello -l 'Today' | head -n 1"
+function notif () {
+  open-github-notifications "$1" "$2" "$3"
+}
+function npmv () {
+  geopkg version "$1"
+}
 
 # Programs
 alias sublime='open -a "Sublime Text"'
@@ -65,8 +105,8 @@ eval "$(hub alias -s)"
 alias gg='git log --oneline --abbrev-commit --all --graph --decorate --color'
 alias gg5='gg | head -n5'
 alias gk='g k'
-alias gitpo="git push origin HEAD"
 alias gits='git status'
+alias gitprune='git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d'
 function gitcf() {
   git clone $1
   IFS='/' read -a array <<< "$1"
