@@ -18,3 +18,4 @@ On a new machine, install:
 
  #### Global node packages
  - [vmd](https://github.com/yoshuawuyts/vmd)
+ - [readme](https://github.com/dominictarr/readme)
