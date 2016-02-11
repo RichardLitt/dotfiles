@@ -2,6 +2,9 @@
 
 My dotfiles.
 
+Note: To stop conflicts, I have two .git files in the git/ folder. Install those, too.
+I reference a `.env` file where I keep keys. Obviously, that is not added here. 
+
 ### Installation
 
 On a new machine, install:
