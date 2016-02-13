@@ -23,4 +23,5 @@ On a new machine, install:
  - [vmd](https://github.com/yoshuawuyts/vmd)
  - [readme](https://github.com/dominictarr/readme)
  - standard
+ - github-repositories _Useful for getting names of repos if you forget_
  
