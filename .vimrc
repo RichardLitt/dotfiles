@@ -1,2 +1,4 @@
-set nocompatible
-set backspace=2
+" Enable syntax highlighting
+syntax on
+
+set nu
