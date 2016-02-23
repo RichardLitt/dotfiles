@@ -24,4 +24,4 @@ On a new machine, install:
  - [readme](https://github.com/dominictarr/readme)
  - standard
  - github-repositories _Useful for getting names of repos if you forget_
- 
+ - open-github-notifications
