@@ -25,3 +25,4 @@ On a new machine, install:
  - standard
  - github-repositories _Useful for getting names of repos if you forget_
  - open-github-notifications
+ - geopkg
