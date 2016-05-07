@@ -1,6 +1,10 @@
 ## Colors
 source ~/.bashrc
 
+alias fuck='echo \"There can be only one. Highlander.\"'
+
+
+
 ## Prompt
 #export PS1="\A \w $ "
 
@@ -75,12 +79,13 @@ function ipfs-status () {
   timestamp "-f" "$IPFS" "$1"
 }
 alias notes="subl ~/src/docs/notes.md"
+alias todo="subl ~/src/closed-door/todo.md"
 function trello() {
   trello-helpers "$1" "$2" "$3"
 }
 alias tt='trello-helpers today'
 alias next="trello -l 'Today' | head -n 1"
-function notif () {
+function ogn () {
   open-github-notifications "$1" "$2" "$3"
 }
 function npmv () {
