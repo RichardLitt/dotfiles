@@ -19,7 +19,11 @@ On a new machine, install:
  - ipfs
  - Sublime [package manager](https://packagecontrol.io/installation)
 
- #### Global node packages
+#### brew install ...
+
+	brew install wget
+
+#### Global node packages
  - [vmd](https://github.com/yoshuawuyts/vmd)
  - [readme](https://github.com/dominictarr/readme)
  - standard
