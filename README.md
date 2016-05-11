@@ -30,3 +30,4 @@ On a new machine, install:
  - github-repositories _Useful for getting names of repos if you forget_
  - open-github-notifications
  - geopkg
+ - doctoc
