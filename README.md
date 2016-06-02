@@ -31,3 +31,5 @@ On a new machine, install:
  - open-github-notifications
  - geopkg
  - doctoc
+ - npm-check-updates
+ - github-repositories
