@@ -33,3 +33,4 @@ On a new machine, install:
  - doctoc
  - npm-check-updates
  - github-repositories
+ - md2html
