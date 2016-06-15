@@ -34,3 +34,4 @@ On a new machine, install:
  - npm-check-updates
  - github-repositories
  - md2html
+ - gulp
