@@ -1,12 +1,11 @@
 ## Colors
 source ~/.bashrc
 
-alias fuck='echo \"There can be only one. Highlander.\"'
-
-
-
 ## Prompt
 #export PS1="\A \w $ "
+
+## https://spin.atomicobject.com/2016/05/28/log-bash-history/
+export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
 
 # From https://github.com/jimeh/git-aware-prompt
 source "/Users/richard/.bash/git-aware-prompt/colors.sh"
@@ -70,11 +69,36 @@ alias h="history"
 
 ## Stupid stuff
 alias ifps=ipfs
+alias twitch="subl ~/src/closed-door/life_list.md"
+
+function contribute {
+  printf "## Contribute\n\
+\n\
+Feel free to join in. All welcome. Open an [issue](https://github.com/ipfs/${PWD##*/}/issues)!\n\
+\n\
+This repository falls under the IPFS [Code of Conduct](https://github.com/ipfs/community/blob/master/code-of-conduct.md).\n\
+\n\
+[![](https://cdn.rawgit.com/jbenet/contribute-ipfs-gif/master/img/contribute.gif)](https://github.com/ipfs/community/blob/master/contributing.md)\n"
+}
+
+function badges {
+  printf "[![](https://img.shields.io/badge/made\%20by-Protocol\%20Labs-blue.svg?style=flat-square)](http://ipn.io)\n\
+[![](https://img.shields.io/badge/project-IPFS-blue.svg?style=flat-square)](http://ipfs.io/)\n\
+[![](https://img.shields.io/badge/freenode-%23ipfs-blue.svg?style=flat-square)](http://webchat.freenode.net/?channels=%23ipfs)\n\
+[![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)\n"
+}
+
+function discussion {
+  printf "[![](https://img.shields.io/badge/discussion_repo-go_to_issues-brightgreen.svg?style=flat-square)](https://github.com/ipfs/${PWD##*/}/issues)\n\
+\n\
+This is a **discussion repo**. That means that all of the work gets done in the [issues](https://github.com/ipfs/${PWD##*/}/issues).\n"
+}
 
 # Productivity helpers
 alias timestamp=rl-timestamp
 export IPFS='/Users/richard/src/closed-door/IPFS.md'
 alias tasks="subl $IPFS"
+alias pb="pbcopy"
 function ipfs-status () {
   timestamp "-f" "$IPFS" "$1"
 }
@@ -85,7 +109,7 @@ function trello() {
 }
 alias tt='trello-helpers today'
 alias next="trello -l 'Today' | head -n 1"
-function ogn () {
+function notif () {
   open-github-notifications "$1" "$2" "$3"
 }
 function npmv () {
@@ -95,6 +119,7 @@ function npmv () {
 # Programs
 alias sublime='open -a "Sublime Text"'
 alias subl=sublime
+alias ia='open -a "ia Writer"'
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-extensions-http-throttling'
 function gmp() {
   FILE=$PWD'/'$1'.html'
@@ -102,6 +127,7 @@ function gmp() {
   open -a 'Google Chrome' 'file://'$FILE
   github-markdown-preview $1
 }
+alias ogn="notif"
 
 ### git
 alias g="git"
@@ -162,6 +188,9 @@ fi
 ### For Geektool
 PATH=$PATH
 
+export GOPATH=$HOME/gocode
+export PATH=$PATH:$GOPATH/bin
+
 ## Env vars
-source ~/.env
-export POETRY=/Users/richard/src/closed-door/poetry/
+# source ~/.env
+# export POETRY=/Users/richard/src/closed-door/poetry/
