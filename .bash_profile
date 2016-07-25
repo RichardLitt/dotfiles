@@ -1,6 +1,9 @@
 ## Colors
 source ~/.bashrc
 
+## Env vars
+source ~/.env
+
 ## Prompt
 #export PS1="\A \w $ "
 
@@ -68,22 +71,26 @@ alias h="history"
 
 ## Stupid stuff
 alias ifps=ipfs
+alias fuck='echo \"There can be only one. Highlander.\"'
 
 # Productivity helpers
 alias timestamp=rl-timestamp
-export IPFS='/Users/richard/src/closed-door/IPFS.md'
+export IPFS=$BASEDIR'protocol_labs.md'
 alias pb="pbcopy"
 function ipfs-status () {
   timestamp "-f" "$IPFS" "$1"
 }
-alias begin='sh ~/src/closed-door/todo/today.sh'
-alias log='cd ~/src/closed-door/todo/log/'
+
+## Document todo lists
 alias notes="subl ~/src/docs/notes.md"
-alias tasks="subl $IPFS"
-alias today='open -a "Sublime Text" ~/src/closed-door/todo/log/$(date +%Y-%m-%d).md'
-alias yesterday='open -a "Sublime Text" ~/src/closed-door/todo/log/$(date -v-1d +%Y-%m-%d).md'
+alias today='sh '$BASEDIR'today.sh'
 alias t=today
-alias todo="subl ~/src/closed-door/todo/todo.md"
+alias log='cd '$BASEDIR'log/'
+alias tasks="subl $IPFS"
+alias yesterday='open -a "Sublime Text" '$BASEDIR'log/$(date -v-1d +%Y-%m-%d).md'
+alias todo='subl '$BASEDIR'todo.md'
+
+## Trello
 function trello() {
   trello-helpers "$1" "$2" "$3"
 }
@@ -173,6 +180,3 @@ PATH=$PATH
 
 export GOPATH=$HOME/gocode
 export PATH=$PATH:$GOPATH/bin
-
-## Env vars
-source ~/.env
