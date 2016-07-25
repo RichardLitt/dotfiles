@@ -64,59 +64,39 @@ alias d="cd ~/Documents"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias src="cd ~/src"
-alias beagle="cd ~/src/beagle"
 alias h="history"
 
 ## Stupid stuff
 alias ifps=ipfs
-alias twitch="subl ~/src/closed-door/life_list.md"
-
-function contribute {
-  printf "## Contribute\n\
-\n\
-Feel free to join in. All welcome. Open an [issue](https://github.com/ipfs/${PWD##*/}/issues)!\n\
-\n\
-This repository falls under the IPFS [Code of Conduct](https://github.com/ipfs/community/blob/master/code-of-conduct.md).\n\
-\n\
-[![](https://cdn.rawgit.com/jbenet/contribute-ipfs-gif/master/img/contribute.gif)](https://github.com/ipfs/community/blob/master/contributing.md)\n"
-}
-
-function badges {
-  printf "[![](https://img.shields.io/badge/made\%20by-Protocol\%20Labs-blue.svg?style=flat-square)](http://ipn.io)\n\
-[![](https://img.shields.io/badge/project-IPFS-blue.svg?style=flat-square)](http://ipfs.io/)\n\
-[![](https://img.shields.io/badge/freenode-%23ipfs-blue.svg?style=flat-square)](http://webchat.freenode.net/?channels=%23ipfs)\n\
-[![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)\n"
-}
-
-function discussion {
-  printf "[![](https://img.shields.io/badge/discussion_repo-go_to_issues-brightgreen.svg?style=flat-square)](https://github.com/ipfs/${PWD##*/}/issues)\n\
-\n\
-This is a **discussion repo**. That means that all of the work gets done in the [issues](https://github.com/ipfs/${PWD##*/}/issues).\n"
-}
 
 # Productivity helpers
 alias timestamp=rl-timestamp
 export IPFS='/Users/richard/src/closed-door/IPFS.md'
-alias tasks="subl $IPFS"
 alias pb="pbcopy"
 function ipfs-status () {
   timestamp "-f" "$IPFS" "$1"
 }
+alias begin='sh ~/src/closed-door/todo/today.sh'
+alias log='cd ~/src/closed-door/todo/log/'
 alias notes="subl ~/src/docs/notes.md"
-alias todo="subl ~/src/closed-door/todo.md"
+alias tasks="subl $IPFS"
+alias today='open -a "Sublime Text" ~/src/closed-door/todo/log/$(date +%Y-%m-%d).md'
+alias yesterday='open -a "Sublime Text" ~/src/closed-door/todo/log/$(date -v-1d +%Y-%m-%d).md'
+alias t=today
+alias todo="subl ~/src/closed-door/todo/todo.md"
 function trello() {
   trello-helpers "$1" "$2" "$3"
 }
 alias tt='trello-helpers today'
 alias next="trello -l 'Today' | head -n 1"
-function notif () {
-  open-github-notifications "$1" "$2" "$3"
-}
+
+# Programs
+## For using normal npm
 function npmv () {
   geopkg version "$1"
 }
-
-# Programs
+## For using np
+alias np='geoip update && np'
 alias sublime='open -a "Sublime Text"'
 alias subl=sublime
 alias ia='open -a "ia Writer"'
@@ -126,6 +106,9 @@ function gmp() {
   touch $FILE
   open -a 'Google Chrome' 'file://'$FILE
   github-markdown-preview $1
+}
+function notif () {
+  open-github-notifications "$1" "$2" "$3"
 }
 alias ogn="notif"
 
@@ -192,5 +175,4 @@ export GOPATH=$HOME/gocode
 export PATH=$PATH:$GOPATH/bin
 
 ## Env vars
-# source ~/.env
-# export POETRY=/Users/richard/src/closed-door/poetry/
+source ~/.env

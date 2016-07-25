@@ -23,7 +23,6 @@
 [github]
 	user = RichardLitt
 [ghi]
-	token = !security find-internet-password -a RichardLitt -s github.com -l 'ghi token' -w
 [credential]
 	helper = osxkeychain
 [core]
@@ -39,3 +38,6 @@
 	trustExitCode = true
 [push]
 	default = simple
+[ghi]
+[ghi]
+	token = !security find-internet-password -a RichardLitt -s github.com -l 'ghi token' -w
