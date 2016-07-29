@@ -83,11 +83,12 @@ alias pb="pbcopy"
 #}
 
 ## Document todo lists
-alias notes="subl ~/src/docs/notes.md"
+export BASEDIR=/Users/richard/src/closed-door/todo/
+alias notes="subl /Users/richard/src/docs/notes.md"
 alias today='sh '$BASEDIR'today.sh'
 alias t=today
 alias log='cd '$BASEDIR'log/'
-alias tasks="subl $IPFS"
+alias tasks='subl '$BASEDIR'protocol_labs.md'
 alias yesterday='open -a "Sublime Text" '$BASEDIR'log/$(date -v-1d +%Y-%m-%d).md'
 alias todo='subl '$BASEDIR'todo.md'
 
