@@ -74,12 +74,13 @@ alias ifps=ipfs
 alias fuck='echo \"There can be only one. Highlander.\"'
 
 # Productivity helpers
-alias timestamp=rl-timestamp
-export IPFS=$BASEDIR'protocol_labs.md'
 alias pb="pbcopy"
-function ipfs-status () {
-  timestamp "-f" "$IPFS" "$1"
-}
+## Timestamper
+# No longer used. Set $LOG if you need to track timestamps.
+#alias timestamp=rl-timestamp
+#function work-status () {
+#  timestamp "-f" "$LOG" "$1"
+#}
 
 ## Document todo lists
 alias notes="subl ~/src/docs/notes.md"
