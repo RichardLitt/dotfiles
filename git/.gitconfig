@@ -2,6 +2,7 @@
 	name = Richard Littauer
 	email = richard.littauer@gmail.com
 [alias]
+	c = commit
 	co = checkout
 	ca = !git add -A && git commit -v
 	ac = !git add -A && git commit --amend
@@ -20,6 +21,7 @@
   yolo = !git add -A && git commit --amend --no-edit && git push -f origin HEAD
   wc = !git diff --word-diff=porcelain HEAD | grep -e '^+[^+]' | wc -w
   k = !git branch && git remote -vv && git status
+  f = !git feature -a feat
 [github]
 	user = RichardLitt
 [ghi]
