@@ -198,3 +198,5 @@ PATH=$PATH
 
 ## yarn
 export PATH="$PATH:$HOME/.yarn/bin"
+export GOPATH=$HOME/gocode
+export PATH=$PATH:$GOPATH/bin
