@@ -61,6 +61,10 @@ alias -- -="cd -"
 function lsf() {
   for f in *; do [[ -d "$f" ]] || ls -- "$f"; done
 }
+function newtab() {
+  pwd | xargs ttab -d
+}
+
 
 # Shortcuts
 alias d="cd ~/Documents"
