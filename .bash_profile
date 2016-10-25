@@ -129,6 +129,14 @@ function notif () {
 }
 alias ogn="notif"
 
+function nr () {
+  if [[ $2 ]]; then
+    ghi label $1 "needs review" -- $2
+  else
+    ghi label $1 "needs review"
+  fi
+}
+
 ### git
 alias g="git"
 alias git="hub"
@@ -188,5 +196,5 @@ fi
 ### For Geektool
 PATH=$PATH
 
-export GOPATH=$HOME/gocode
-export PATH=$PATH:$GOPATH/bin
+## yarn
+export PATH="$PATH:$HOME/.yarn/bin"
