@@ -79,6 +79,7 @@ alias fuck='echo \"There can be only one. Highlander.\"'
 
 # Productivity helpers
 alias pb="pbcopy"
+alias doc="doctoc"
 ## Timestamper
 # No longer used. Set $LOG if you need to track timestamps.
 #alias timestamp=rl-timestamp
@@ -88,12 +89,15 @@ alias pb="pbcopy"
 
 ## Document todo lists
 export BASEDIR=/Users/richard/src/closed-door/todo/
-alias notes="subl /Users/richard/src/docs/notes.md"
+alias knowledge="subl /Users/richard/src/knowledge/"
+alias k=knowledge
+alias closed="cd /Users/richard/src/closed-door"
 alias today='sh '$BASEDIR'today.sh'
 alias t=today
 alias log='cd '$BASEDIR'log/'
 alias tasks='subl '$BASEDIR'protocol_labs.md'
 alias yesterday='open -a "Sublime Text" '$BASEDIR'log/$(date -v-1d +%Y-%m-%d).md'
+alias y=yesterday
 alias todo='subl '$BASEDIR'todo.md'
 
 ## Trello
