@@ -89,7 +89,7 @@ alias doc="doctoc"
 
 ## Document todo lists
 export BASEDIR=/Users/richard/src/closed-door/todo/
-alias knowledge="subl /Users/richard/src/knowledge/"
+alias knowledge="cd /Users/richard/src/knowledge/"
 alias k=knowledge
 alias closed="cd /Users/richard/src/closed-door"
 alias today='sh '$BASEDIR'today.sh'
@@ -200,3 +200,8 @@ PATH=$PATH
 export PATH="$PATH:$HOME/.yarn/bin"
 export GOPATH=$HOME/gocode
 export PATH=$PATH:$GOPATH/bin
+
+# Setting PATH for Python 3.5
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
+export PATH

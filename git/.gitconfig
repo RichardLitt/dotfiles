@@ -2,33 +2,36 @@
 	name = Richard Littauer
 	email = richard.littauer@gmail.com
 [alias]
-	c = commit
-	co = checkout
-	ca = !git add -A && git commit -v
 	ac = !git add -A && git commit --amend
-	rr = !git remote rename origin upstream && git remote rename RichardLitt origin && git remote -vv
-	dn = diff --stat --color
-	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	s = status
-	up = push origin HEAD
-	down = pull origin HEAD
-	rv = remote -vv
 	br = branch -rr
-	mum = merge upstream/master
+	c = commit
+	ca = !git add -A && git commit -v
+	co = checkout
+	commend = commit --amend --no-edit
+	credit = !sh -c 'git commit --amend --author \"$1\" -C HEAD' -
+	dn = diff --stat --color
+	down = pull origin HEAD
+	f = !git feature -a feat
+	fa = fetch --all
 	fm = !git co master && git fetch upstream && git mum
+	it = !git init && git commit -m “root” --allow-empty
+	k = !git branch && git remote -vv && git status
+	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	mum = merge upstream/master
+	open-pr = !git fetch --all && git pull-request
+	please = push --force-with-lease
 	rbm = rebase master
-  credit = !sh -c 'git commit --amend --author \"$1\" -C HEAD' -
-  yolo = !git add -A && git commit --amend --no-edit && git push -f origin HEAD
-  wc = !git diff --word-diff=porcelain HEAD | grep -e '^+[^+]' | wc -w
-  k = !git branch && git remote -vv && git status
-  f = !git feature -a feat
-  please = push --force-with-lease
-  commend = commit --amend --no-edit
-  it = !git init && git commit -m “root” --allow-empty
-	stsh = stash --keep-index
-	staash = stash --include-untracked
-	staaash = stash --all
+	rr = !git remote rename origin upstream && git remote rename RichardLitt origin && git remote -vv
+	rv = remote -vv
+	s = status
 	st = status --short --branch
+	staaash = stash --all
+	staash = stash --include-untracked
+	stsh = stash --keep-index
+	unadd = reset HEAD
+	up = push origin HEAD
+	wc = !git diff --word-diff=porcelain HEAD | grep -e '^+[^+]' | wc -w
+	yolo = !git add -A && git commit --amend --no-edit && git push -f origin HEAD
 [github]
 	user = RichardLitt
 [ghi]
