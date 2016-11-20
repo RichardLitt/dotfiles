@@ -35,4 +35,7 @@ On a new machine, install:
  - github-repositories
  - md2html
  - gulp
-82
+
+### Other things to do
+
+- Follow [this StackOverflow](https://stackoverflow.com/questions/127591/using-caps-lock-as-esc-in-mac-os-x) issue to remap <kbd>caps lock</kbd> as <kbd>esc</kbd>.
