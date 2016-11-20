@@ -8,7 +8,8 @@ I reference a `.env` file where I keep keys. Obviously, that is not added here.
 ### Installation
 
 On a new machine, install:
- - homebrew
+ - [homebrew](https://github.com/Homebrew/brew)
+  - Then use brew bundle to install, using the Brewfile in this repo.
  - go
  - node
  - nvm
@@ -19,9 +20,6 @@ On a new machine, install:
  - ipfs
  - Sublime [package manager](https://packagecontrol.io/installation)
 
-#### brew install ...
-
-	brew install wget
 
 #### Global node packages
  - [vmd](https://github.com/yoshuawuyts/vmd)
