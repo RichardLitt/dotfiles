@@ -72,6 +72,7 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias src="cd ~/src"
 alias h="history"
+alias py="python"
 
 ## Stupid stuff
 alias ifps=ipfs
@@ -92,13 +93,20 @@ export BASEDIR=/Users/richard/src/closed-door/todo/
 alias knowledge="cd /Users/richard/src/knowledge/"
 alias k=knowledge
 alias closed="cd /Users/richard/src/closed-door"
+
+## To Do Lists
 alias today='sh '$BASEDIR'today.sh'
 alias t=today
-alias log='cd '$BASEDIR'log/'
-alias tasks='subl '$BASEDIR'protocol_labs.md'
+alias tomorrow='sh '$BASEDIR'tomorrow.sh'
 alias yesterday='open -a "Sublime Text" '$BASEDIR'log/$(date -v-1d +%Y-%m-%d).md'
 alias y=yesterday
+alias log='cd '$BASEDIR'log/'
+alias work='subl '$BASEDIR'projects/protocol-labs/tasks.md'
 alias todo='subl '$BASEDIR'todo.md'
+
+function lotr() {
+  node ~/src/sandbox/lotrtcg/dice.js "$1"
+}
 
 ## Trello
 function trello() {
@@ -205,3 +213,7 @@ export PATH=$PATH:$GOPATH/bin
 # The original version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
 export PATH
+
+# Keychain; installed to use with cronjob with git and ssh
+# /usr/local/bin/keychain $HOME/.ssh/id_dsa --quiet
+# source $HOME/.keychain/${HOSTNAME}-sh
