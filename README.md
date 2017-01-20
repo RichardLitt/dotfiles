@@ -20,6 +20,13 @@ On a new machine, install:
  - ipfs
  - Sublime [package manager](https://packagecontrol.io/installation)
 
+Run:
+
+```
+stty -ixon
+# https://stackoverflow.com/questions/17760474/reverse-intelligent-search-reverse-i-search-how-to-get-previous-result
+```
+
 
 #### Global node packages
  - [vmd](https://github.com/yoshuawuyts/vmd)
