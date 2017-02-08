@@ -38,11 +38,11 @@ find_git_dirty() {
 # parse_git_stash() {
 #     [[ $(git stash list 2> /dev/null | tail -n1) != "" ]] && echo ' \[\e[0;31m\]☣'
 # }
- 
+
 # set_bash_prompt(){
 #     PS1="\A \w$(parse_git_stash) \[\e[0m\]🐕  "
 # }
- 
+
 # PROMPT_COMMAND=set_bash_prompt
 
 PROMPT_COMMAND="find_git_branch; find_git_dirty; $PROMPT_COMMAND"
@@ -90,6 +90,7 @@ alias doc="doctoc"
 
 ## Document todo lists
 export BASEDIR=/Users/richard/src/closed-door/todo/
+export IDE=atom
 alias knowledge="cd /Users/richard/src/knowledge/"
 alias k=knowledge
 alias closed="cd /Users/richard/src/closed-door"
@@ -98,11 +99,11 @@ alias closed="cd /Users/richard/src/closed-door"
 alias today='sh '$BASEDIR'today.sh'
 alias t=today
 alias tomorrow='sh '$BASEDIR'tomorrow.sh'
-alias yesterday='open -a "Sublime Text" '$BASEDIR'log/$(date -v-1d +%Y-%m-%d).md'
+alias yesterday=$IDE' '$BASEDIR'log/$(date -v-1d +%Y-%m-%d).md'
 alias y=yesterday
 alias log='cd '$BASEDIR'log/'
-alias work='subl '$BASEDIR'projects/protocol-labs/tasks.md'
-alias todo='subl '$BASEDIR'todo.md'
+alias work=$IDE' '$BASEDIR'projects/protocol-labs/tasks.md'
+alias todo=$IDE' '$BASEDIR'todo.md'
 
 function lotr() {
   node ~/src/sandbox/lotrtcg/dice.js "$1"
@@ -200,7 +201,7 @@ fi
 ## Ruby
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-## PATH 
+## PATH
 ### For Geektool
 PATH=$PATH
 
