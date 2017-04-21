@@ -35,6 +35,10 @@ find_git_dirty() {
   fi
 }
 
+convert_to_text() {
+  pbpaste | textutil -convert txt -stdin -stdout -encoding 30 | pbcopy
+}
+
 # parse_git_stash() {
 #     [[ $(git stash list 2> /dev/null | tail -n1) != "" ]] && echo ' \[\e[0;31m\]☣'
 # }
@@ -89,32 +93,32 @@ alias doc="doctoc"
 #}
 
 ## Document todo lists
-export BASEDIR=/Users/richard/src/closed-door/todo/
+export BASEDIR=/Users/richard/closed/todo/
 export IDE=atom
-alias knowledge="cd /Users/richard/src/knowledge/"
+alias knowledge="cd ~/src/knowledge/"
 alias k=knowledge
-alias closed="cd /Users/richard/src/closed-door"
+alias closed="cd ~/closed"
+alias c=closed
 
 ## To Do Lists
-alias today='sh '$BASEDIR'today.sh'
+alias today='log -p '$BASEDIR'log --tasksfile '$BASEDIR'todo.md -r '$BASEDIR'daily_routines.md'
 alias t=today
-alias tomorrow='sh '$BASEDIR'tomorrow.sh'
-alias yesterday=$IDE' '$BASEDIR'log/$(date -v-1d +%Y-%m-%d).md'
+alias tomorrow='log -m -p '$BASEDIR'log --tasksfile '$BASEDIR'todo.md -r '$BASEDIR'daily_routines.md'
+alias yesterday='log -y -p '$BASEDIR'log'
 alias y=yesterday
-alias log='cd '$BASEDIR'log/'
-alias work=$IDE' '$BASEDIR'projects/protocol-labs/tasks.md'
 alias todo=$IDE' '$BASEDIR'todo.md'
+alias producteev='open https://www.producteev.com/workspace/n/576ad37f2adaeac059000004/u/576ad2edb0fa09883c000008'
 
 function lotr() {
   node ~/src/sandbox/lotrtcg/dice.js "$1"
 }
 
 ## Trello
-function trello() {
-  trello-helpers "$1" "$2" "$3"
-}
-alias tt='trello-helpers today'
-alias next="trello -l 'Today' | head -n 1"
+# function trello() {
+#   trello-helpers "$1" "$2" "$3"
+# }
+# alias tt='trello-helpers today'
+# alias next="trello -l 'Today' | head -n 1"
 
 # Programs
 ## For using normal npm
@@ -149,7 +153,7 @@ function nr () {
 ### git
 alias g="git"
 alias git="hub"
-eval "$(hub alias -s)"
+#eval "$(hub alias -s)"
 alias gg='git log --oneline --abbrev-commit --all --graph --decorate --color'
 alias gg5='gg | head -n5'
 alias gk='g k'
@@ -216,5 +220,5 @@ PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
 export PATH
 
 # Keychain; installed to use with cronjob with git and ssh
-# /usr/local/bin/keychain $HOME/.ssh/id_dsa --quiet
-# source $HOME/.keychain/${HOSTNAME}-sh
+/usr/local/bin/keychain $HOME/.ssh/id_rsa --quiet
+source $HOME/.keychain/${HOSTNAME}-sh
