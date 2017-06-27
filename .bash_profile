@@ -7,6 +7,10 @@ source ~/.env
 ## Prompt
 #export PS1="\A \w $ "
 
+badge() {
+  echo '[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)'
+}
+
 ## https://spin.atomicobject.com/2016/05/28/log-bash-history/
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
 
@@ -101,10 +105,10 @@ alias closed="cd ~/closed"
 alias c=closed
 
 ## To Do Lists
-alias today='log -p '$BASEDIR'log --tasksfile '$BASEDIR'todo.md -r '$BASEDIR'daily_routines.md'
+alias today='ship -p '$BASEDIR'log --tasksfile '$BASEDIR'todo.md -r '$BASEDIR'daily_routines.md'
 alias t=today
-alias tomorrow='log -m -p '$BASEDIR'log --tasksfile '$BASEDIR'todo.md -r '$BASEDIR'daily_routines.md'
-alias yesterday='log -y -p '$BASEDIR'log'
+alias tomorrow='ship -m -p '$BASEDIR'log --tasksfile '$BASEDIR'todo.md -r '$BASEDIR'daily_routines.md'
+alias yesterday='ship -y -p '$BASEDIR'log'
 alias y=yesterday
 alias todo=$IDE' '$BASEDIR'todo.md'
 alias producteev='open https://www.producteev.com/workspace/n/576ad37f2adaeac059000004/u/576ad2edb0fa09883c000008'
@@ -129,6 +133,7 @@ function npmv () {
 alias np='geoip update && np'
 alias sublime='open -a "Sublime Text"'
 alias subl=sublime
+alias atom='open -a "Atom"'
 alias ia='open -a "ia Writer"'
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-extensions-http-throttling'
 function gmp() {
