@@ -7,10 +7,6 @@ source ~/.env
 ## Prompt
 #export PS1="\A \w $ "
 
-badge() {
-  echo '[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)'
-}
-
 ## https://spin.atomicobject.com/2016/05/28/log-bash-history/
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
 
@@ -75,12 +71,12 @@ function newtab() {
 
 
 # Shortcuts
-alias d="cd ~/Documents"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias src="cd ~/src"
 alias h="history"
 alias py="python"
+alias lotr="choose-a-deck"
 
 ## Stupid stuff
 alias ifps=ipfs
@@ -96,13 +92,21 @@ alias doc="doctoc"
 #  timestamp "-f" "$LOG" "$1"
 #}
 
+# Refresh Atom
+# Occasionally, atom randomly stops working.
+function refresh_atom() {
+  rm /usr/local/bin/atom
+  ln -s /Applications/Atom.app/Contents/Resources/app/atom.sh /usr/local/bin/atom
+}
+
 ## Document todo lists
-export BASEDIR=/Users/richard/closed/todo/
+export BASEDIR=/Users/richard/docs/todo/
 export IDE=atom
-alias knowledge="cd ~/src/knowledge/"
+alias knowledge="cd ~/docs/knowledge/"
 alias k=knowledge
-alias closed="cd ~/closed"
-alias c=closed
+alias docs="cd ~/docs"
+alias d=docs
+alias journal='journall'
 
 ## To Do Lists
 alias today='ship -p '$BASEDIR'log --tasksfile '$BASEDIR'todo.md -r '$BASEDIR'daily_routines.md'
@@ -133,7 +137,6 @@ function npmv () {
 alias np='geoip update && np'
 alias sublime='open -a "Sublime Text"'
 alias subl=sublime
-alias atom='open -a "Atom"'
 alias ia='open -a "ia Writer"'
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-extensions-http-throttling'
 function gmp() {

@@ -9,7 +9,7 @@ export NVM_DIR="/Users/richard/.nvm"
 export TERM=xterm-256color
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/usr/local/bin/heroku:$PATH"
 
 # added by travis gem
 [ -f /Users/richard/.travis/travis.sh ] && source /Users/richard/.travis/travis.sh
