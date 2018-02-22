@@ -39,6 +39,12 @@ convert_to_text() {
   pbpaste | textutil -convert txt -stdin -stdout -encoding 30 | pbcopy
 }
 
+empty-mail() {
+  > /var/mail/richard # Pipe nothing into the mailbox
+  rm -f ~/mbox # Delete only if it exists
+  echo "Mail emptied."
+}
+
 # parse_git_stash() {
 #     [[ $(git stash list 2> /dev/null | tail -n1) != "" ]] && echo ' \[\e[0;31m\]☣'
 # }
@@ -74,17 +80,24 @@ function newtab() {
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias src="cd ~/src"
+alias knowledge="cd ~/docs/knowledge/"
+alias k=knowledge
+alias docs="cd ~/docs"
+alias d=docs
 alias h="history"
 alias py="python"
-alias lotr="choose-a-deck"
+alias thesis="cd ~/src/thesis/"
+
 
 ## Stupid stuff
 alias ifps=ipfs
 alias fuck='echo \"There can be only one. Highlander.\"'
+alias lotr="choose-a-deck"
 
-# Productivity helpers
-alias pb="pbcopy"
-alias doc="doctoc"
+# function lotr() {
+#   node ~/src/sandbox/lotrtcg/dice.js "$1"
+# }
+
 ## Timestamper
 # No longer used. Set $LOG if you need to track timestamps.
 #alias timestamp=rl-timestamp
@@ -102,24 +115,19 @@ function refresh_atom() {
 ## Document todo lists
 export BASEDIR=/Users/richard/docs/todo/
 export IDE=atom
-alias knowledge="cd ~/docs/knowledge/"
-alias k=knowledge
-alias docs="cd ~/docs"
-alias d=docs
 alias journal='journall'
-
-## To Do Lists
+alias next='atom '$BASEDIR'nextActions.md'
+alias someday='atom '$BASEDIR'someday.md'
+alias waiting='atom '$BASEDIR'waiting.md'
+alias projects='atom '$BASEDIR
 alias today='ship -p '$BASEDIR'log --tasksfile '$BASEDIR'todo.md -r '$BASEDIR'daily_routines.md'
 alias t=today
 alias tomorrow='ship -m -p '$BASEDIR'log --tasksfile '$BASEDIR'todo.md -r '$BASEDIR'daily_routines.md'
 alias yesterday='ship -y -p '$BASEDIR'log'
 alias y=yesterday
 alias todo=$IDE' '$BASEDIR'todo.md'
+alias incoming=todo
 alias producteev='open https://www.producteev.com/workspace/n/576ad37f2adaeac059000004/u/576ad2edb0fa09883c000008'
-
-function lotr() {
-  node ~/src/sandbox/lotrtcg/dice.js "$1"
-}
 
 ## Trello
 # function trello() {
@@ -133,6 +141,11 @@ function lotr() {
 function npmv () {
   geopkg version "$1"
 }
+
+function mit-package.json () {
+  json -I -f package.json -e 'this.license="MIT"'
+}
+
 ## For using np
 alias np='geoip update && np'
 alias sublime='open -a "Sublime Text"'

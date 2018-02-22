@@ -9,10 +9,11 @@
 	co = checkout
 	commend = commit --amend --no-edit
 	credit = !sh -c 'git commit --amend --author \"$1\" -C HEAD' -
+	dc = diff --cached
 	dn = diff --stat --color
 	down = pull origin HEAD
 	f = !git feature -a feat
-	fa = fetch --all
+	fa = fetch --all --prune
 	fm = !git co master && git fetch upstream && git mum
 	it = !git init && git commit -m “root” --allow-empty
 	k = !git branch && git remote -vv && git status
@@ -20,7 +21,9 @@
 	mum = merge upstream/master
 	open-pr = !git fetch --all && git pull-request
 	please = push --force-with-lease
+	prco = !git pr checkout
 	rbm = rebase master
+	rich = push RichardLitt HEAD
 	rr = !git remote rename origin upstream && git remote rename RichardLitt origin && git remote -vv
 	rv = remote -vv
 	s = status
@@ -34,6 +37,7 @@
 	yolo = !git add -A && git commit --amend --no-edit && git push -f origin HEAD
 [github]
 	user = RichardLitt
+	username = RichardLitt
 [credential]
 	helper = osxkeychain
 [core]
@@ -50,9 +54,14 @@
 [push]
 	default = simple
 [ghi]
-[ghi]
 	token = !security find-internet-password -a RichardLitt -s github.com -l 'ghi token' -w
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 	required = true
+# Enforce SSH
+#[url "ssh://git@github.com/"]
+#  insteadOf = https://github.com/
+ [hub]
+ 	protocol = ssh
