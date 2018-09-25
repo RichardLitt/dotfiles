@@ -1,6 +1,6 @@
 [user]
 	name = Richard Littauer
-	email = richard.littauer@gmail.com
+	email = richard+github@burntfen.com
 [alias]
 	ac = !git add -A && git commit --amend
 	br = branch -rr
@@ -64,4 +64,5 @@
 #[url "ssh://git@github.com/"]
 #  insteadOf = https://github.com/
  [hub]
+ 	host = github.com
  	protocol = ssh

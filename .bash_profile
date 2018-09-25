@@ -4,6 +4,15 @@ source ~/.bashrc
 ## Env vars
 source ~/.env
 
+## Bundler
+alias bejs="bundle exec jekyll serve"
+alias bees=bejs
+
+alias may="atom ~/docs/may/_drafts/draft.md"
+
+alias steam="wine ~/.wine/drive_c/Program\ Files/Steam/Steam.exe"
+alias words="vi ~/docs/knowledge/words.md"
+
 ## Prompt
 #export PS1="\A \w $ "
 
@@ -119,14 +128,13 @@ alias journal='journall'
 alias next='atom '$BASEDIR'nextActions.md'
 alias someday='atom '$BASEDIR'someday.md'
 alias waiting='atom '$BASEDIR'waiting.md'
-alias projects='atom '$BASEDIR
+alias todo='vim '$BASEDIR'todo.md'
 alias today='ship -p '$BASEDIR'log --tasksfile '$BASEDIR'todo.md -r '$BASEDIR'daily_routines.md'
 alias t=today
 alias tomorrow='ship -m -p '$BASEDIR'log --tasksfile '$BASEDIR'todo.md -r '$BASEDIR'daily_routines.md'
 alias yesterday='ship -y -p '$BASEDIR'log'
 alias y=yesterday
-alias todo=$IDE' '$BASEDIR'todo.md'
-alias incoming=todo
+alias inbox=$IDE' '$BASEDIR'todo.md'
 alias producteev='open https://www.producteev.com/workspace/n/576ad37f2adaeac059000004/u/576ad2edb0fa09883c000008'
 
 ## Trello
@@ -169,6 +177,11 @@ function nr () {
   else
     ghi label $1 "needs review"
   fi
+}
+
+function aga() {
+  ag -i $1
+  ag -ig $1
 }
 
 ### git
@@ -241,5 +254,5 @@ PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
 export PATH
 
 # Keychain; installed to use with cronjob with git and ssh
-/usr/local/bin/keychain $HOME/.ssh/id_rsa --quiet
-source $HOME/.keychain/${HOSTNAME}-sh
+# /usr/local/bin/keychain $HOME/.ssh/id_rsa --quiet
+# source $HOME/.keychain/${HOSTNAME}-sh
