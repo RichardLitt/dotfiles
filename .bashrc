@@ -2,6 +2,8 @@ export CLICOLOR=""
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+stty -ixon
+
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export NVM_DIR="/Users/richard/.nvm"

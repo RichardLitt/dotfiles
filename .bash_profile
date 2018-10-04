@@ -16,6 +16,10 @@ alias words="vi ~/docs/knowledge/words.md"
 ## Prompt
 #export PS1="\A \w $ "
 
+badge() {
+  echo '[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)'
+}
+
 ## https://spin.atomicobject.com/2016/05/28/log-bash-history/
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
 
@@ -86,6 +90,7 @@ function newtab() {
 
 
 # Shortcuts
+alias d="cd ~/Documents"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias src="cd ~/src"
@@ -95,8 +100,7 @@ alias docs="cd ~/docs"
 alias d=docs
 alias h="history"
 alias py="python"
-alias thesis="cd ~/src/thesis/"
-
+alias iphoneBattery="sudo killall -STOP -c usbd"
 
 ## Stupid stuff
 alias ifps=ipfs
@@ -107,6 +111,9 @@ alias lotr="choose-a-deck"
 #   node ~/src/sandbox/lotrtcg/dice.js "$1"
 # }
 
+# Productivity helpers
+alias pb="pbcopy"
+alias doc="doctoc"
 ## Timestamper
 # No longer used. Set $LOG if you need to track timestamps.
 #alias timestamp=rl-timestamp
@@ -149,15 +156,11 @@ alias producteev='open https://www.producteev.com/workspace/n/576ad37f2adaeac059
 function npmv () {
   geopkg version "$1"
 }
-
-function mit-package.json () {
-  json -I -f package.json -e 'this.license="MIT"'
-}
-
 ## For using np
 alias np='geoip update && np'
 alias sublime='open -a "Sublime Text"'
 alias subl=sublime
+alias atom='open -a "Atom"'
 alias ia='open -a "ia Writer"'
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-extensions-http-throttling'
 function gmp() {
