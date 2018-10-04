@@ -19,6 +19,7 @@ On a new machine, install:
  - git-aware-prompt
  - ipfs
  - Sublime [package manager](https://packagecontrol.io/installation)
+ - Vundle: `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 
 Run:
 
