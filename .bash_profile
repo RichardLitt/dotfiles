@@ -190,6 +190,7 @@ function aga() {
 ### git
 alias g="git"
 alias git="hub"
+alias github="git browse --"
 #eval "$(hub alias -s)"
 alias gg='git log --oneline --abbrev-commit --all --graph --decorate --color'
 alias gg5='gg | head -n5'

@@ -7,6 +7,7 @@
 	c = commit
 	ca = !git add -A && git commit -v
 	co = checkout
+	cl = clone
 	commend = commit --amend --no-edit
 	credit = !sh -c 'git commit --amend --author \"$1\" -C HEAD' -
 	dc = diff --cached
