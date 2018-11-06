@@ -136,9 +136,9 @@ alias next='atom '$BASEDIR'nextActions.md'
 alias someday='atom '$BASEDIR'someday.md'
 alias waiting='atom '$BASEDIR'waiting.md'
 alias todo='vim '$BASEDIR'todo.md'
-alias today='ship -p '$BASEDIR'log --tasksfile '$BASEDIR'todo.md -r '$BASEDIR'daily_routines.md'
+alias today='ship --path='$BASEDIR'log --tasksfile='$BASEDIR'todo.md --routines='$BASEDIR'daily_routines.md'
 alias t=today
-alias tomorrow='ship -m -p '$BASEDIR'log --tasksfile '$BASEDIR'todo.md -r '$BASEDIR'daily_routines.md'
+alias tomorrow='ship -m -p '$BASEDIR'log --tasksfile='$BASEDIR'todo.md --routines='$BASEDIR'daily_routines.md'
 alias yesterday='ship -y -p '$BASEDIR'log'
 alias y=yesterday
 alias inbox=$IDE' '$BASEDIR'todo.md'
