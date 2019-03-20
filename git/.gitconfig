@@ -34,6 +34,7 @@
 	stsh = stash --keep-index
 	unadd = reset HEAD
 	up = push origin HEAD
+	update-all = !find . -maxdepth 3 -name .git -type d | rev | cut -c 6- | rev | xargs -I {} git -C {} fa
 	wc = !git diff --word-diff=porcelain HEAD | grep -e '^+[^+]' | wc -w
 	yolo = !git add -A && git commit --amend --no-edit && git push -f origin HEAD
 [github]
