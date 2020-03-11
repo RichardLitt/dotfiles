@@ -30,17 +30,57 @@ stty -ixon
 
 
 #### Global node packages
- - [vmd](https://github.com/yoshuawuyts/vmd)
- - [readme](https://github.com/dominictarr/readme)
- - standard
- - github-repositories _Useful for getting names of repos if you forget_
- - open-github-notifications
- - geopkg
- - doctoc
- - npm-check-updates
- - github-repositories
- - md2html
- - gulp
+
+Put these into a file and run: `cat file | xargs -n1 npm i -g`
+
+alex
+commitizen
+covgen
+csvtojson
+doctoc
+geopkg
+gh-description
+gh-stars
+git-unsaved
+github-activity-stats
+github-description
+github-description-cli
+github-email
+github-repositories
+github-star-repo
+gulp
+gulp-cli
+ignore-github-users
+is-github-user-or-org
+jabbar
+journall
+license
+licensee
+licensor
+markdown-pdf
+markdown-to-html
+marky-markdown
+md2html
+name-your-contributors
+now
+npm-check-updates
+npm-name-cli
+open-github-notifications
+orbit-db
+orbit-db-cli
+osx-learn
+readme
+semantic-release-cli
+ships-log
+standard
+tap
+validate-maintainers
+vmd
+wallpaper-cli
+watch-gh-repos
+whodidwhat
+write-good
+ynab-convert-csv
 
 ### Other things to do
 
