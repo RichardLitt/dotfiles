@@ -3,6 +3,9 @@
 ```sh
 mkdir ~/src && cd ~/src
 git clone https://github.com/RichardLitt/dotfiles.git
+cd dotfiles
+git remote set-url origin git@github.com:RichardLitt/dotfiles.git
+cd ..
 sudo apt update
 sudo apt install vim atom gnome-shell-pomodoro git-extras
 sudo snap install --classic hub
